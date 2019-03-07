@@ -8,6 +8,16 @@ const { typeDefs } = gql`
     me: User
   }
 
+  type Mutation {
+    # if false, booking trips failed -- check errors
+    bookTrips(launchIds: [ID]!): TripUpdateResponse!
+
+    # if false, cancellation failed -- check errors
+    cancelTrip(launchId: ID!): TripUpdateResponse!
+
+    login(email: String): String # Login token
+  }
+
   type Launch {
     id: ID!
     site: String
